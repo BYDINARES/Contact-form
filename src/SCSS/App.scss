@@ -1,0 +1,14 @@
+html {
+  body {
+    #root {
+      header {
+      }
+      main {
+        form {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
