@@ -19,6 +19,30 @@ function App() {
           {/* The user's email address */}
           <label htmlFor="">Email Address *</label>
           <input type="email" />
+
+          <p>Query Type *</p>
+          <label>
+            <input type="radio" name="option" value="1" /> General Enquiry
+          </label>
+          <label>
+            <input type="radio" name="option" value="2" /> Support Request
+          </label>
+
+          <label htmlFor="message"> Message * </label>
+          <textarea name="mesage-box" id="message"></textarea>
+
+          <label htmlFor="i-accept-button">
+            <input type="checkbox" name="users-approval" id="i-accept-button" />{" "}
+            I consent to being contacted by the team *
+          </label>
+
+          <label htmlFor=""></label>
+          <input
+            id="submit-button"
+            type="submit"
+            value="Submit"
+            placeholder="Submit"
+          />
         </form>
       </main>
     </>
