@@ -4,21 +4,21 @@ function App() {
   return (
     <>
       <header>
-        <h1>Contact Us</h1>
+        <h1 className="title">Contact Us</h1>
       </header>
       <main>
         <form action="">
           {/* The user's first name */}
           <label htmlFor="first-name">First Name *</label>
-          <input id="first-name" type="text" />
+          <input className="user-information" id="first-name" type="text" />
 
           {/* The user's last name */}
-          <label htmlFor="">Last Name *</label>
-          <input type="text" />
+          <label htmlFor="last-name">Last Name *</label>
+          <input className="user-information" id="last-name" type="text" />
 
           {/* The user's email address */}
-          <label htmlFor="">Email Address *</label>
-          <input type="email" />
+          <label htmlFor="email">Email Address *</label>
+          <input className="user-information" id="email" type="email" />
 
           <p>Query Type *</p>
           <label>
