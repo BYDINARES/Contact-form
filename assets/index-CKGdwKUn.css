@@ -1,1 +1,0 @@
-html body #root{flex-direction:column;justify-content:center;align-items:center;padding:2%;display:flex}html body #root main{width:90%}html body #root main form{flex-direction:column;justify-content:center;align-items:center;width:100%;display:flex}html body #root main form>*{width:100%}
