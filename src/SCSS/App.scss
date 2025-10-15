@@ -42,28 +42,30 @@ html {
     background-color: white;
     border-radius: 15px;
     #root {
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 100%;
       gap: 5%;
-      height: 140vw;
+      height: 220vw;
 
       //Styling
 
       header {
         width: 90%;
-        height: 10%;
+        height: 5%;
         h1.title {
           margin: 0%;
         }
       }
       main {
         width: 90%;
-        height: 75%;
+        height: 80%;
 
         form {
+          box-sizing: border-box;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -75,8 +77,57 @@ html {
             width: 97%;
           }
 
+          //The 3 first inputs
+          label.label-user-infomation {
+          }
           input.user-information {
-            height: 60%; //Why dosn't this work?
+            width: 100%;
+            box-sizing: border-box;
+            border-width: 1px;
+            min-height: 2.5rem;
+            padding: 5%;
+            margin-bottom: 5%;
+            border-radius: 10px;
+          }
+
+          //The 2 radio inputs
+          label.query-type-option {
+            box-sizing: border-box;
+            border: 1px solid rgb(112, 112, 112);
+            padding: 3%;
+            margin-bottom: 4%;
+            border-radius: 10px;
+            width: 100%;
+          }
+
+          //The text area message area
+          label.label-message {
+          }
+          textarea.large-message {
+            background-color: aqua;
+          }
+
+          //The confirmation checkbox
+          label.label-confirmation-button {
+            display: flex;
+            align-items: center;
+            gap: 4%;
+          }
+          input.confirmation-button {
+            display: flex;
+            flex-wrap: wrap; /* allows text to wrap */
+            margin-top: 10%;
+            margin-bottom: 10%;
+          }
+
+          //The submit button
+          #submit-button {
+            height: 8%;
+            border-style: none;
+            background-color: rgb(28, 109, 87);
+            color: white;
+            font-weight: 600;
+            border-radius: 10px;
           }
         }
       }
