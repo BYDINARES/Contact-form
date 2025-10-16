@@ -26,6 +26,17 @@
   font-style: normal;
   font-display: swap;
 }
+@keyframes increaseAndDecrease {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 html {
   font-family: "Karla";
   background-color: rgb(175, 212, 212);
@@ -45,19 +56,20 @@ html body #root {
   align-items: center;
   justify-content: center;
   width: 100%;
-  gap: 5%;
-  height: 220vw;
+  gap: 2%;
+  height: 270vw;
 }
 html body #root header {
   width: 90%;
   height: 5%;
+  margin-top: 3%;
 }
 html body #root header h1.title {
   margin: 0%;
 }
 html body #root main {
   width: 90%;
-  height: 80%;
+  height: 90%;
 }
 html body #root main form {
   box-sizing: border-box;
@@ -71,14 +83,30 @@ html body #root main form {
 html body #root main form > * {
   width: 97%;
 }
+html body #root main form label.label-user-infomation {
+  margin-bottom: 3%;
+}
 html body #root main form input.user-information {
   width: 100%;
   box-sizing: border-box;
   border-width: 1px;
   min-height: 2.5rem;
   padding: 5%;
-  margin-bottom: 5%;
+  margin-bottom: 10%;
   border-radius: 10px;
+  font-size: 1rem;
+}
+html body #root main form input.user-information:hover, html body #root main form input.user-information:focus {
+  background-color: rgb(237, 246, 255);
+}
+html body #root main form input.user-information:active {
+  animation: increaseAndDecrease 0.1s ease-in-out;
+}
+html body #root main form input.user-information:focus {
+  outline: none;
+}
+html body #root main form p.pick-a-query-type {
+  margin-top: 0%;
 }
 html body #root main form label.query-type-option {
   box-sizing: border-box;
@@ -88,8 +116,31 @@ html body #root main form label.query-type-option {
   border-radius: 10px;
   width: 100%;
 }
+html body #root main form label.query-type-option.query-type-option--support {
+  margin-bottom: 6%;
+}
+html body #root main form label.query-type-option:active {
+  animation: increaseAndDecrease 0.1s ease-in-out;
+}
+html body #root main form label.label-message {
+  margin-bottom: 2%;
+}
 html body #root main form textarea.large-message {
-  background-color: aqua;
+  border-style: none;
+  height: 60rem;
+  border-radius: 10px;
+  border: 1px solid rgb(112, 112, 112);
+  padding: 2%;
+  font-size: 1rem;
+}
+html body #root main form textarea.large-message:hover, html body #root main form textarea.large-message:focus {
+  background-color: rgb(237, 246, 255);
+}
+html body #root main form textarea.large-message:active {
+  animation: increaseAndDecrease 0.1s ease-in-out;
+}
+html body #root main form textarea.large-message:focus {
+  outline: none;
 }
 html body #root main form label.label-confirmation-button {
   display: flex;
@@ -98,15 +149,38 @@ html body #root main form label.label-confirmation-button {
 }
 html body #root main form input.confirmation-button {
   display: flex;
-  flex-wrap: wrap; /* allows text to wrap */
+  flex-wrap: wrap;
   margin-top: 10%;
   margin-bottom: 10%;
 }
 html body #root main form #submit-button {
-  height: 8%;
+  height: 25%;
   border-style: none;
   background-color: rgb(28, 109, 87);
   color: white;
   font-weight: 600;
   border-radius: 10px;
+  margin-bottom: 4%;
+  transition: background-color 0.1s ease-in-out;
+  font-size: 1rem;
+}
+html body #root main form #submit-button:active {
+  animation: increaseAndDecrease 0.1s ease-in-out;
+  background-color: aqua;
+}
+
+@media (min-width: 400px) {
+  html {
+    font-size: 20px;
+  }
+}
+@media (min-width: 500px) {
+  html {
+    font-size: 25px;
+  }
+}
+@media (min-width: 576px) {
+  html {
+    font-size: 30px;
+  }
 }/*# sourceMappingURL=App.css.map */

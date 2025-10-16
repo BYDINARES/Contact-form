@@ -24,11 +24,11 @@ function App() {
           </label>
           <input className="user-information" id="email" type="email" />
 
-          <p>Query Type *</p>
-          <label className="query-type-option">
+          <p className="pick-a-query-type">Query Type *</p>
+          <label className="query-type-option query-type-option--general">
             <input type="radio" name="option" value="1" /> General Enquiry
           </label>
-          <label className="query-type-option">
+          <label className="query-type-option query-type-option--support">
             <input type="radio" name="option" value="2" /> Support Request
           </label>
 

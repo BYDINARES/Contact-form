@@ -30,7 +30,24 @@
   font-style: normal;
   font-display: swap;
 }
-// @media (min-width: 321px)
+
+//=============== Animation section =====================
+
+@keyframes increaseAndDecrease {
+  0% {
+    transform: scale(0.8);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+//============== @media (min-width: 321px) ======================
 html {
   font-family: "Karla";
   background-color: rgb(175, 212, 212);
@@ -48,21 +65,22 @@ html {
       align-items: center;
       justify-content: center;
       width: 100%;
-      gap: 5%;
-      height: 220vw;
+      gap: 2%;
+      height: 270vw;
 
       //Styling
 
       header {
         width: 90%;
         height: 5%;
+        margin-top: 3%;
         h1.title {
           margin: 0%;
         }
       }
       main {
         width: 90%;
-        height: 80%;
+        height: 90%;
 
         form {
           box-sizing: border-box;
@@ -79,6 +97,7 @@ html {
 
           //The 3 first inputs
           label.label-user-infomation {
+            margin-bottom: 3%;
           }
           input.user-information {
             width: 100%;
@@ -86,11 +105,25 @@ html {
             border-width: 1px;
             min-height: 2.5rem;
             padding: 5%;
-            margin-bottom: 5%;
+            margin-bottom: 10%;
             border-radius: 10px;
+            font-size: 1rem;
+            &:hover,
+            &:focus {
+              background-color: rgb(237, 246, 255);
+            }
+            &:active {
+              animation: increaseAndDecrease 0.1s ease-in-out;
+            }
+            &:focus {
+              outline: none;
+            }
           }
 
           //The 2 radio inputs
+          p.pick-a-query-type {
+            margin-top: 0%;
+          }
           label.query-type-option {
             box-sizing: border-box;
             border: 1px solid rgb(112, 112, 112);
@@ -98,13 +131,40 @@ html {
             margin-bottom: 4%;
             border-radius: 10px;
             width: 100%;
+
+            &.query-type-option--support {
+              margin-bottom: 6%;
+            }
+
+            //Animations
+            &:active {
+              animation: increaseAndDecrease 0.1s ease-in-out;
+            }
           }
 
           //The text area message area
           label.label-message {
+            margin-bottom: 2%;
           }
           textarea.large-message {
-            background-color: aqua;
+            border-style: none;
+            height: 60rem;
+            border-radius: 10px;
+            border: 1px solid rgb(112, 112, 112);
+            padding: 2%;
+            font-size: 1rem;
+
+            &:hover,
+            &:focus {
+              background-color: rgb(237, 246, 255);
+            }
+
+            &:active {
+              animation: increaseAndDecrease 0.1s ease-in-out;
+            }
+            &:focus {
+              outline: none;
+            }
           }
 
           //The confirmation checkbox
@@ -115,19 +175,27 @@ html {
           }
           input.confirmation-button {
             display: flex;
-            flex-wrap: wrap; /* allows text to wrap */
+            flex-wrap: wrap;
             margin-top: 10%;
             margin-bottom: 10%;
           }
 
           //The submit button
           #submit-button {
-            height: 8%;
+            height: 25%;
             border-style: none;
             background-color: rgb(28, 109, 87);
             color: white;
             font-weight: 600;
             border-radius: 10px;
+            margin-bottom: 4%;
+            transition: background-color 0.1s ease-in-out;
+            font-size: 1rem;
+
+            &:active {
+              animation: increaseAndDecrease 0.1s ease-in-out;
+              background-color: aqua;
+            }
           }
         }
       }
@@ -135,10 +203,25 @@ html {
   }
 }
 
-@media (min-width: 576px) {
+@media (min-width: 400px) {
+  html {
+    font-size: 20px;
+  }
 }
 
-// Medium devices (tablets, 768px and up)
+@media (min-width: 500px) {
+  html {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 576px) {
+  html {
+    font-size: 30px;
+  }
+}
+
+// Medium devices (tablets, 768px and up) Portrait
 @media (min-width: 768px) {
 }
 
