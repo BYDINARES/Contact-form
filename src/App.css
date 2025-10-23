@@ -87,6 +87,9 @@ html body #root main form {
 html body #root main form > * {
   width: 97%;
 }
+html body #root main form label > .error {
+  color: red;
+}
 html body #root main form label.label-user-infomation {
   margin-bottom: 3%;
 }

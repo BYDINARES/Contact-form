@@ -100,6 +100,10 @@ html {
             width: 97%;
           }
 
+          label > .error {
+            color: red;
+          }
+
           //The 3 first inputs
           label.label-user-infomation {
             margin-bottom: 3%;

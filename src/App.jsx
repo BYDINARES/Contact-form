@@ -2,16 +2,37 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [numberOfErrors, setnumberOfErrors] = useState(0);
+  const [errors, setErrors] = useState({});
 
-  /*   function handleSubmit(event) {
-    event.preventDefault();
-    const formEl = event.currentTarget;
-    const formData = new FormData(formEl);
-    const email = formData.get("email");
-    const email
-    formEl.reset();
-  } */
+  function handleBlur(event) {
+    const { name, value, type, checked } = event.target;
+    let message = "";
+
+    // Basic validation rules
+    if (type === "text" && !value.trim()) {
+      message = `${name.replace("-", " ")} is required.`;
+    }
+
+    if (type === "email") {
+      if (!value.trim()) message = "Email is required.";
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
+        message = "Enter a valid email.";
+    }
+
+    if (type === "radio" && !checked) {
+      // We'll handle radios separately (see below)
+    }
+
+    if (type === "checkbox" && !checked) {
+      message = "You must consent to be contacted.";
+    }
+
+    // Update error state
+    setErrors((prev) => ({ ...prev, [name]: message }));
+  }
+
+  console.log({ errors });
+
   return (
     <>
       <header>
@@ -27,7 +48,12 @@ function App() {
               id="first-name"
               type="text"
               name="first-name"
+              onBlur={handleBlur}
+              required
             />
+            {errors["first-name"] && (
+              <p className="error">{errors["first-name"]}</p>
+            )}
           </label>
 
           {/* The user's last name */}
@@ -41,7 +67,12 @@ function App() {
               id="last-name"
               type="text"
               name="last-name"
+              onBlur={handleBlur}
+              required
             />
+            {errors["last-name"] && (
+              <p className="error">{errors["last-name"]}</p>
+            )}
           </label>
 
           {/* The user's email address */}
@@ -52,15 +83,29 @@ function App() {
               id="email"
               type="email"
               name="email"
+              onBlur={handleBlur}
+              required
             />
+            {errors["email"] && <p className="error">{errors["email"]}</p>}
           </label>
 
           <p className="pick-a-query-type">Query Type *</p>
-          <label className="query-type-option query-type-option--general general">
-            <input type="radio" name="option" value="1" /> General Enquiry
+          <label
+            className="query-type-option query-type-option--general general"
+            required
+          >
+            <input type="radio" name="option" value="1" onBlur={handleBlur} />{" "}
+            General Enquiry
           </label>
           <label className="query-type-option query-type-option--support support">
-            <input type="radio" name="option" value="2" /> Support Request
+            <input
+              type="radio"
+              name="option"
+              value="2"
+              onBlur={handleBlur}
+              required
+            />{" "}
+            Support Request
           </label>
 
           <label className="label-message" htmlFor="message">
@@ -70,6 +115,10 @@ function App() {
               className="large-message"
               name="mesage-box"
               id="message"
+              onBlur={handleBlur}
+              minlength="10"
+              maxlength="500"
+              required
             ></textarea>
           </label>
 
@@ -82,8 +131,13 @@ function App() {
               type="checkbox"
               name="users-approval"
               id="i-accept-button"
+              onBlur={handleBlur}
+              required
             />{" "}
             I consent to being contacted by the team *
+            {errors["users-approval"] && (
+              <p className="error">{errors["users-approval"]}</p>
+            )}
           </label>
 
           <input
@@ -91,6 +145,7 @@ function App() {
             type="submit"
             value="Submit"
             placeholder="Submit"
+            onBlur={handleBlur}
           />
         </form>
       </main>
