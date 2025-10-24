@@ -84,16 +84,14 @@ html body #root main form {
   width: 100%;
   height: 100%;
 }
-html body #root main form > * {
+html body #root main form * {
   width: 97%;
-}
-html body #root main form label > .error {
-  color: red;
+  z-index: 1;
 }
 html body #root main form label.label-user-infomation {
   margin-bottom: 3%;
 }
-html body #root main form input.user-information {
+html body #root main form label.label-user-infomation input.user-information {
   width: 100%;
   box-sizing: border-box;
   border-width: 1px;
@@ -103,13 +101,13 @@ html body #root main form input.user-information {
   border-radius: 10px;
   font-size: 1rem;
 }
-html body #root main form input.user-information:hover, html body #root main form input.user-information:focus {
+html body #root main form label.label-user-infomation input.user-information:hover, html body #root main form label.label-user-infomation input.user-information:focus {
   background-color: rgb(237, 246, 255);
 }
-html body #root main form input.user-information:active {
+html body #root main form label.label-user-infomation input.user-information:active {
   animation: increaseAndDecrease 0.1s ease-in-out;
 }
-html body #root main form input.user-information:focus {
+html body #root main form label.label-user-infomation input.user-information:focus {
   outline: none;
 }
 html body #root main form p.pick-a-query-type {

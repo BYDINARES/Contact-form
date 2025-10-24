@@ -25,10 +25,28 @@ function App() {
 
     if (type === "checkbox" && !checked) {
       message = "You must consent to be contacted.";
+    } else if (value.trim() && errors[name]) {
+      // Clear old error if user fixed it
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
 
     // Update error state
     setErrors((prev) => ({ ...prev, [name]: message }));
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    // check if any radio is selected
+    const option = formData.get("option");
+    if (!option) {
+      setErrors((prev) => ({ ...prev, option: "Please select a query type." }));
+      return;
+    }
+
+    // ... you could add final checks here if needed
+    console.log("Form submitted successfully!");
   }
 
   console.log({ errors });
@@ -39,7 +57,7 @@ function App() {
         <h1 className="title">Contact Us</h1>
       </header>
       <main>
-        <form action="">
+        <form onSubmit={handleSubmit} action="">
           {/* The user's first name */}
           <label className="label-user-infomation name" htmlFor="first-name">
             First Name *
@@ -51,9 +69,11 @@ function App() {
               onBlur={handleBlur}
               required
             />
-            {errors["first-name"] && (
-              <p className="error">{errors["first-name"]}</p>
-            )}
+            <div className="error-containers">
+              {errors["first-name"] && (
+                <p className="error">{errors["first-name"]}</p>
+              )}
+            </div>
           </label>
 
           {/* The user's last name */}
@@ -70,9 +90,11 @@ function App() {
               onBlur={handleBlur}
               required
             />
-            {errors["last-name"] && (
-              <p className="error">{errors["last-name"]}</p>
-            )}
+            <div className="error-containers">
+              {errors["last-name"] && (
+                <p className="error">{errors["last-name"]}</p>
+              )}
+            </div>
           </label>
 
           {/* The user's email address */}
@@ -86,7 +108,9 @@ function App() {
               onBlur={handleBlur}
               required
             />
-            {errors["email"] && <p className="error">{errors["email"]}</p>}
+            <div className="error-containers">
+              {errors["email"] && <p className="error">{errors["email"]}</p>}
+            </div>
           </label>
 
           <p className="pick-a-query-type">Query Type *</p>
@@ -94,7 +118,12 @@ function App() {
             className="query-type-option query-type-option--general general"
             required
           >
-            <input type="radio" name="option" value="1" onBlur={handleBlur} />{" "}
+            <input
+              type="radio"
+              name="option"
+              value="1"
+              onChange={() => setErrors((prev) => ({ ...prev, option: "" }))}
+            />{" "}
             General Enquiry
           </label>
           <label className="query-type-option query-type-option--support support">
@@ -102,11 +131,14 @@ function App() {
               type="radio"
               name="option"
               value="2"
-              onBlur={handleBlur}
+              onChange={() => setErrors((prev) => ({ ...prev, option: "" }))}
               required
             />{" "}
             Support Request
           </label>
+          <div className="error-containers">
+            {errors.option && <p className="error">{errors.option}</p>}
+          </div>
 
           <label className="label-message" htmlFor="message">
             {" "}
@@ -135,9 +167,11 @@ function App() {
               required
             />{" "}
             I consent to being contacted by the team *
-            {errors["users-approval"] && (
-              <p className="error">{errors["users-approval"]}</p>
-            )}
+            <div className="error-containers">
+              {errors["users-approval"] && (
+                <p className="error">{errors["users-approval"]}</p>
+              )}
+            </div>
           </label>
 
           <input
