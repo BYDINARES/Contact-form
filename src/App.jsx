@@ -70,9 +70,11 @@ function App() {
               required
             />
             <div className="error-containers">
-              {errors["first-name"] && (
-                <p className="error">{errors["first-name"]}</p>
-              )}
+              <p className="error">
+                {errors["first-name"]
+                  ? `${errors["first-name"]}`
+                  : "Error text"}
+              </p>
             </div>
           </label>
 
@@ -91,9 +93,9 @@ function App() {
               required
             />
             <div className="error-containers">
-              {errors["last-name"] && (
-                <p className="error">{errors["last-name"]}</p>
-              )}
+              <p className="error">
+                {errors["last-name"] ? `${errors["last-name"]}` : "Error text"}
+              </p>
             </div>
           </label>
 
@@ -109,35 +111,47 @@ function App() {
               required
             />
             <div className="error-containers">
-              {errors["email"] && <p className="error">{errors["email"]}</p>}
+              <p className="error">
+                {errors["email"] ? `${errors["email"]}` : "Error text"}
+              </p>
             </div>
           </label>
 
-          <p className="pick-a-query-type">Query Type *</p>
-          <label
-            className="query-type-option query-type-option--general general"
-            required
-          >
-            <input
-              type="radio"
-              name="option"
-              value="1"
-              onChange={() => setErrors((prev) => ({ ...prev, option: "" }))}
-            />{" "}
-            General Enquiry
-          </label>
-          <label className="query-type-option query-type-option--support support">
-            <input
-              type="radio"
-              name="option"
-              value="2"
-              onChange={() => setErrors((prev) => ({ ...prev, option: "" }))}
+          {/* THE TWO RADIO OPTIONS */}
+          <div className="two-radio-options-container">
+            {/*----Litle title */}
+            <p className="pick-a-query-type">Query Type *</p>
+
+            {/*----The first option */}
+            <label
+              className="query-type-option query-type-option--general general"
               required
-            />{" "}
-            Support Request
-          </label>
-          <div className="error-containers">
-            {errors.option && <p className="error">{errors.option}</p>}
+            >
+              <input
+                type="radio"
+                name="option"
+                value="1"
+                onChange={() => setErrors((prev) => ({ ...prev, option: "" }))}
+              />{" "}
+              General Enquiry
+            </label>
+
+            {/*----The second option */}
+            <label className="query-type-option query-type-option--support support">
+              <input
+                type="radio"
+                name="option"
+                value="2"
+                onChange={() => setErrors((prev) => ({ ...prev, option: "" }))}
+                required
+              />{" "}
+              Support Request
+            </label>
+            <div className="error-containers">
+              <p className="error">
+                {errors["option"] ? `${errors["option"]}` : "Error text"}
+              </p>
+            </div>
           </div>
 
           <label className="label-message" htmlFor="message">
@@ -145,13 +159,20 @@ function App() {
             Message *{" "}
             <textarea
               className="large-message"
-              name="mesage-box"
+              name="message-box"
               id="message"
               onBlur={handleBlur}
-              minlength="10"
-              maxlength="500"
+              minLength="10"
+              maxLength="500"
               required
             ></textarea>
+            <div className="error-containers">
+              <p className="error">
+                {errors["message-box"]
+                  ? `${errors["message-box"]}`
+                  : "Error text"}
+              </p>
+            </div>
           </label>
 
           <label
@@ -168,9 +189,11 @@ function App() {
             />{" "}
             I consent to being contacted by the team *
             <div className="error-containers">
-              {errors["users-approval"] && (
-                <p className="error">{errors["users-approval"]}</p>
-              )}
+              <p className="error">
+                {errors["users-approval"]
+                  ? `${errors["users-approval"]}`
+                  : "Error text"}
+              </p>
             </div>
           </label>
 
