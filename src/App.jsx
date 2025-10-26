@@ -30,6 +30,14 @@ function App() {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
 
+    if (event.target.tagName === "TEXTAREA") {
+      if (!value.trim()) {
+        message = "Message is required.";
+      } else if (value.trim().length < 10) {
+        message = "Message must be at least 10 characters.";
+      }
+    }
+
     // Update error state
     setErrors((prev) => ({ ...prev, [name]: message }));
   }
@@ -70,7 +78,7 @@ function App() {
               required
             />
             <div className="error-containers">
-              <p className="error">
+              <p className={errors["first-name"] ? "active-error" : "error"}>
                 {errors["first-name"]
                   ? `${errors["first-name"]}`
                   : "Error text"}
@@ -93,7 +101,7 @@ function App() {
               required
             />
             <div className="error-containers">
-              <p className="error">
+              <p className={errors["last-name"] ? "active-error" : "error"}>
                 {errors["last-name"] ? `${errors["last-name"]}` : "Error text"}
               </p>
             </div>
@@ -111,7 +119,7 @@ function App() {
               required
             />
             <div className="error-containers">
-              <p className="error">
+              <p className={errors["email"] ? "active-error" : "error"}>
                 {errors["email"] ? `${errors["email"]}` : "Error text"}
               </p>
             </div>
@@ -148,13 +156,13 @@ function App() {
               Support Request
             </label>
             <div className="error-containers">
-              <p className="error">
+              <p className={errors["option"] ? "active-error" : "error"}>
                 {errors["option"] ? `${errors["option"]}` : "Error text"}
               </p>
             </div>
           </div>
 
-          <label className="label-message" htmlFor="message">
+          <label className="label-message" htmlFor="message-box">
             {" "}
             Message *{" "}
             <textarea
@@ -167,7 +175,7 @@ function App() {
               required
             ></textarea>
             <div className="error-containers">
-              <p className="error">
+              <p className={errors["message-box"] ? "active-error" : "error"}>
                 {errors["message-box"]
                   ? `${errors["message-box"]}`
                   : "Error text"}
@@ -189,7 +197,9 @@ function App() {
             />{" "}
             I consent to being contacted by the team *
             <div className="error-containers">
-              <p className="error">
+              <p
+                className={errors["users-approval"] ? "active-error" : "error"}
+              >
                 {errors["users-approval"]
                   ? `${errors["users-approval"]}`
                   : "Error text"}
