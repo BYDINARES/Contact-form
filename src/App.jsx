@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "./App.css";
+import Popup from "./popup";
 
 function App() {
   const [errors, setErrors] = useState({});
+  // const [wasSent, setWasSent] = useState(false);
 
   function handleBlur(event) {
     const { name, value, type, checked } = event.target;
@@ -46,26 +48,24 @@ function App() {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    // check if any radio is selected
     const option = formData.get("option");
     if (!option) {
       setErrors((prev) => ({ ...prev, option: "Please select a query type." }));
+      console.log(!option);
       return;
     }
-
-    // ... you could add final checks here if needed
-    console.log("Form submitted successfully!");
   }
 
   console.log({ errors });
 
+  //===================== The html ================================
   return (
     <>
       <header>
         <h1 className="title">Contact Us</h1>
       </header>
       <main>
-        <form onSubmit={handleSubmit} action="">
+        <form onSubmit={handleSubmit} noValidate>
           {/* The user's first name */}
           <label className="label-user-infomation name" htmlFor="first-name">
             First Name *
@@ -125,20 +125,17 @@ function App() {
             </div>
           </label>
 
-          {/* THE TWO RADIO OPTIONS */}
+          {/*=========== THE TWO RADIO OPTIONS =============*/}
           <div className="two-radio-options-container">
             {/*----Litle title */}
             <p className="pick-a-query-type">Query Type *</p>
 
             {/*----The first option */}
-            <label
-              className="query-type-option query-type-option--general general"
-              required
-            >
+            <label className="query-type-option query-type-option--general general">
               <input
                 type="radio"
                 name="option"
-                value="1"
+                value="general-enquiry"
                 onChange={() => setErrors((prev) => ({ ...prev, option: "" }))}
               />{" "}
               General Enquiry
@@ -149,9 +146,8 @@ function App() {
               <input
                 type="radio"
                 name="option"
-                value="2"
+                value="support-request"
                 onChange={() => setErrors((prev) => ({ ...prev, option: "" }))}
-                required
               />{" "}
               Support Request
             </label>
