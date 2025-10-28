@@ -4,7 +4,7 @@ import Popup from "./popup";
 
 function App() {
   const [errors, setErrors] = useState({});
-  // const [wasSent, setWasSent] = useState(false);
+  const [wasSent, setWasSent] = useState(false);
 
   function handleBlur(event) {
     const { name, value, type, checked } = event.target;
@@ -46,17 +46,38 @@ function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const formData = new FormData(event.target);
 
+    const form = event.target;
+    const formData = new FormData(form);
+    const elements = Array.from(form.elements);
+
+    // Trigger blur validation for every input/textarea/checkbox
+    elements.forEach((el) => {
+      if (el.name) {
+        handleBlur({ target: el });
+      }
+    });
+
+    // Check the radio buttons manually
     const option = formData.get("option");
     if (!option) {
       setErrors((prev) => ({ ...prev, option: "Please select a query type." }));
-      console.log(!option);
-      return;
     }
-  }
 
-  console.log({ errors });
+    // Wait for state updates, then check if there are errors
+    setTimeout(() => {
+      const hasErrors = Object.values(errors).some((msg) => msg);
+      if (!hasErrors && option) {
+        console.log("✅ Form submitted successfully!");
+        setWasSent(true);
+
+        // you could also reset the form here if you want
+        // form.reset();
+      } else {
+        console.log("❌ There are still errors:", errors);
+      }
+    }, 0);
+  }
 
   //===================== The html ================================
   return (
@@ -211,6 +232,7 @@ function App() {
             onBlur={handleBlur}
           />
         </form>
+        <Popup />
       </main>
     </>
   );
