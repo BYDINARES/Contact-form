@@ -314,6 +314,48 @@ html {
             }
           }
         }
+        dialog.popup {
+          position: fixed;
+          bottom: 70%;
+          width: 30%;
+          height: fit-content;
+          box-shadow: 0.7rem 0.7rem 10px gray;
+
+          //Styling
+          border-radius: 10px;
+          background-color: rgb(28, 50, 50);
+          color: aliceblue;
+          border-style: none;
+
+          div.top-section-popup {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5%;
+
+            img.success-icon {
+              height: 100%;
+            }
+            h1 {
+              font-size: 1.2rem;
+              margin: 0%;
+            }
+          }
+          p.thanks {
+            font-weight: 400;
+          }
+          button.close-dialog {
+            border-style: none;
+            border-radius: 5px;
+
+            &:hover,
+            &:focus-visible {
+              background-color: aqua;
+            }
+            &:active {
+            }
+          }
+        }
       }
     }
   }

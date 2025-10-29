@@ -79,6 +79,13 @@ function App() {
     }, 0);
   }
 
+  function resetForm() {
+    const form = document.querySelector("form"); // or use a ref if you prefer
+    if (form) form.reset(); // resets the actual HTML form fields
+    setErrors({}); // clears all errors
+    setWasSent(false); // hides the popup again
+  }
+
   //===================== The html ================================
   return (
     <>
@@ -232,7 +239,7 @@ function App() {
             onBlur={handleBlur}
           />
         </form>
-        <Popup />
+        <Popup isOpen={wasSent} onClose={resetForm} />
       </main>
     </>
   );

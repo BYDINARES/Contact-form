@@ -268,7 +268,41 @@ html body #root main form #submit-button:active {
   animation: increaseAndDecrease 0.1s ease-in-out;
   background-color: aqua;
 }
-
+html body #root main dialog.popup {
+  position: fixed;
+  bottom: 70%;
+  width: 30%;
+  height: -moz-fit-content;
+  height: fit-content;
+  box-shadow: 0.7rem 0.7rem 10px gray;
+  border-radius: 10px;
+  background-color: rgb(28, 50, 50);
+  color: aliceblue;
+  border-style: none;
+}
+html body #root main dialog.popup div.top-section-popup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5%;
+}
+html body #root main dialog.popup div.top-section-popup img.success-icon {
+  height: 100%;
+}
+html body #root main dialog.popup div.top-section-popup h1 {
+  font-size: 1.2rem;
+  margin: 0%;
+}
+html body #root main dialog.popup p.thanks {
+  font-weight: 400;
+}
+html body #root main dialog.popup button.close-dialog {
+  border-style: none;
+  border-radius: 5px;
+}
+html body #root main dialog.popup button.close-dialog:hover, html body #root main dialog.popup button.close-dialog:focus-visible {
+  background-color: aqua;
+}
 @media (min-width: 400px) {
   html {
     font-size: 20px;
