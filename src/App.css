@@ -1,31 +1,3 @@
-@font-face {
-  font-family: "Karla";
-  src: url("/src/fonts/Karla-Italic-VariableFont_wght.ttf") format("truetype");
-  font-weight: 100 700;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Karla";
-  src: url("/src/fonts/Karla-VariableFont_wght.ttf") format("truetype");
-  font-weight: 100 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Karla";
-  src: url("/src/fonts/static/Karla-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Karla";
-  src: url("/src/fonts/static/Karla-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 @keyframes increaseAndDecrease {
   0% {
     transform: scale(0.8);
@@ -271,7 +243,7 @@ html body #root main form #submit-button:active {
 html body #root main dialog.popup {
   position: fixed;
   bottom: 70%;
-  width: 30%;
+  width: 40%;
   height: -moz-fit-content;
   height: fit-content;
   box-shadow: 0.7rem 0.7rem 10px gray;
@@ -299,18 +271,70 @@ html body #root main dialog.popup p.thanks {
 html body #root main dialog.popup button.close-dialog {
   border-style: none;
   border-radius: 5px;
+  font-weight: 500;
+  transition: all 0.5s ease;
 }
 html body #root main dialog.popup button.close-dialog:hover, html body #root main dialog.popup button.close-dialog:focus-visible {
-  background-color: aqua;
+  background-color: rgb(153, 245, 245);
+}
+html body #root main dialog.popup button.close-dialog:active {
+  animation: increaseAndDeacrese 1s ease;
+}
+
+@font-face {
+  font-family: "Karla";
+  src: url("/src/fonts/Karla-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Karla";
+  src: url("/src/fonts/Karla-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Karla";
+  src: url("/src/fonts/static/Karla-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Karla";
+  src: url("/src/fonts/static/Karla-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 @media (min-width: 400px) {
   html {
     font-size: 20px;
   }
+  html body #root main dialog.popup {
+    bottom: 67%;
+  }
+  html body #root main dialog.popup div.top-section-popup h1 {
+    font-size: 1rem;
+  }
+  html body #root main dialog.popup p.thanks {
+    font-size: 1rem;
+  }
 }
 @media (min-width: 500px) {
   html {
     font-size: 25px;
+  }
+  html body #root main dialog.popup {
+    bottom: 69%;
+  }
+  html body #root main dialog.popup div.top-section-popup h1 {
+    font-size: 1rem;
+  }
+  html body #root main dialog.popup p.thanks {
+    font-size: 0.7rem;
   }
 }
 @media (min-width: 576px) {
