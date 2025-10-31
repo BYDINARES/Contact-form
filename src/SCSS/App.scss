@@ -13,6 +13,16 @@
   }
 }
 
+@keyframes fadeOut {
+  from {
+    transform: translate(0px, 0px);
+  }
+  to {
+    transform: translate(30%, 0px);
+    visibility: hidden;
+  }
+}
+
 //============== @media (min-width: 321px) ======================
 html {
   font-family: "Karla";
@@ -282,22 +292,26 @@ html {
         }
         dialog.popup {
           position: fixed;
-          bottom: 70%;
+          bottom: auto;
           width: 40%;
           height: fit-content;
+          margin-top: 2%;
           box-shadow: 0.7rem 0.7rem 10px gray;
+          padding: 4%;
 
           //Styling
           border-radius: 10px;
           background-color: rgb(28, 50, 50);
           color: aliceblue;
           border-style: none;
+          transition: all 1s ease;
 
           div.top-section-popup {
             display: flex;
             flex-direction: row;
             align-items: center;
             gap: 5%;
+            width: 100%;
 
             img.success-icon {
               height: 100%;
@@ -309,11 +323,18 @@ html {
           }
           p.thanks {
             font-weight: 400;
+            width: 100%;
           }
           button.close-dialog {
+            width: 100%;
             border-style: none;
             border-radius: 5px;
-            font-weight: 500;
+            padding: 2%;
+
+            background-color: rgb(21, 93, 92);
+            color: rgb(251, 251, 251);
+            font-weight: 600;
+            font-size: 0.8rem;
             transition: all 0.5s ease;
 
             &:hover,
@@ -323,6 +344,10 @@ html {
             &:active {
               animation: increaseAndDeacrese 1s ease;
             }
+          }
+          //ANIMATION FOR WHEN THE BUTTON GETS CLICKED
+          &.fade-out {
+            animation: fadeOut 1s ease;
           }
         }
       }

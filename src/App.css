@@ -9,6 +9,15 @@
     transform: scale(1);
   }
 }
+@keyframes fadeOut {
+  from {
+    transform: translate(0px, 0px);
+  }
+  to {
+    transform: translate(30%, 0px);
+    visibility: hidden;
+  }
+}
 html {
   font-family: "Karla";
   background-color: rgb(175, 212, 212);
@@ -242,21 +251,25 @@ html body #root main form #submit-button:active {
 }
 html body #root main dialog.popup {
   position: fixed;
-  bottom: 70%;
+  bottom: auto;
   width: 40%;
   height: -moz-fit-content;
   height: fit-content;
+  margin-top: 2%;
   box-shadow: 0.7rem 0.7rem 10px gray;
+  padding: 4%;
   border-radius: 10px;
   background-color: rgb(28, 50, 50);
   color: aliceblue;
   border-style: none;
+  transition: all 1s ease;
 }
 html body #root main dialog.popup div.top-section-popup {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 5%;
+  width: 100%;
 }
 html body #root main dialog.popup div.top-section-popup img.success-icon {
   height: 100%;
@@ -267,11 +280,17 @@ html body #root main dialog.popup div.top-section-popup h1 {
 }
 html body #root main dialog.popup p.thanks {
   font-weight: 400;
+  width: 100%;
 }
 html body #root main dialog.popup button.close-dialog {
+  width: 100%;
   border-style: none;
   border-radius: 5px;
-  font-weight: 500;
+  padding: 2%;
+  background-color: rgb(21, 93, 92);
+  color: rgb(251, 251, 251);
+  font-weight: 600;
+  font-size: 0.8rem;
   transition: all 0.5s ease;
 }
 html body #root main dialog.popup button.close-dialog:hover, html body #root main dialog.popup button.close-dialog:focus-visible {
@@ -279,6 +298,9 @@ html body #root main dialog.popup button.close-dialog:hover, html body #root mai
 }
 html body #root main dialog.popup button.close-dialog:active {
   animation: increaseAndDeacrese 1s ease;
+}
+html body #root main dialog.popup.fade-out {
+  animation: fadeOut 1s ease;
 }
 
 @font-face {
@@ -312,34 +334,79 @@ html body #root main dialog.popup button.close-dialog:active {
 @media (min-width: 400px) {
   html {
     font-size: 20px;
-  }
-  html body #root main dialog.popup {
-    bottom: 67%;
-  }
-  html body #root main dialog.popup div.top-section-popup h1 {
-    font-size: 1rem;
-  }
-  html body #root main dialog.popup p.thanks {
-    font-size: 1rem;
+    /* body {
+      #root {
+        main {
+          dialog.popup {
+            bottom: 67%;
+            div.top-section-popup {
+              img.success-icon {
+              }
+              h1 {
+                font-size: 1rem;
+              }
+            }
+            p.thanks {
+              font-size: 1rem;
+            }
+            button.close-dialog {
+
+            }
+          }
+        }
+      }
+    } */
   }
 }
 @media (min-width: 500px) {
   html {
     font-size: 25px;
-  }
-  html body #root main dialog.popup {
-    bottom: 69%;
-  }
-  html body #root main dialog.popup div.top-section-popup h1 {
-    font-size: 1rem;
-  }
-  html body #root main dialog.popup p.thanks {
-    font-size: 0.7rem;
+    /* body {
+      #root {
+        main {
+          dialog.popup {
+            bottom: 69%;
+            div.top-section-popup {
+              img.success-icon {
+              }
+              h1 {
+                font-size: 1rem;
+              }
+            }
+            p.thanks {
+              font-size: 0.7rem;
+            }
+            button.close-dialog {
+            }
+          }
+        }
+      }
+    } */
   }
 }
 @media (min-width: 576px) {
   html {
     font-size: 30px;
+    /* body {
+      #root {
+        main {
+          dialog.popup {
+            div.top-section-popup {
+              img.success-icon {
+              }
+              h1 {
+                font-size: 0.8rem;
+              }
+            }
+            p.thanks {
+              font-size: 0.65rem;
+            }
+            button.close-dialog {
+            }
+          }
+        }
+      }
+    } */
   }
 }
 @media (min-width: 768px) {
@@ -351,6 +418,12 @@ html body #root main dialog.popup button.close-dialog:active {
   }
   html body #root {
     height: 170vw;
+  }
+  html body #root main dialog.popup div.top-section-popup h1 {
+    font-size: 1.5rem;
+  }
+  html body #root main dialog.popup p.thanks {
+    font-size: 1rem;
   }
 }
 @media (min-width: 992px) {
@@ -508,6 +581,9 @@ html body #root main dialog.popup button.close-dialog:active {
     height: 60%;
     display: flex;
     width: 100%;
+  }
+  html body div#root main dialog.popup {
+    width: 30vw;
   }
 }
 @media (min-width: 1200px) {

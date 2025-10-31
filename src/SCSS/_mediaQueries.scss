@@ -1,7 +1,7 @@
 @media (min-width: 400px) {
   html {
     font-size: 20px;
-    body {
+    /* body {
       #root {
         main {
           dialog.popup {
@@ -17,18 +17,19 @@
               font-size: 1rem;
             }
             button.close-dialog {
+
             }
           }
         }
       }
-    }
+    } */
   }
 }
 
 @media (min-width: 500px) {
   html {
     font-size: 25px;
-    body {
+    /* body {
       #root {
         main {
           dialog.popup {
@@ -48,14 +49,14 @@
           }
         }
       }
-    }
+    } */
   }
 }
 
 @media (min-width: 576px) {
   html {
     font-size: 30px;
-    body {
+    /* body {
       #root {
         main {
           dialog.popup {
@@ -63,16 +64,18 @@
               img.success-icon {
               }
               h1 {
+                font-size: 0.8rem;
               }
             }
             p.thanks {
+              font-size: 0.65rem;
             }
             button.close-dialog {
             }
           }
         }
       }
-    }
+    } */
   }
 }
 
@@ -91,9 +94,11 @@
               img.success-icon {
               }
               h1 {
+                font-size: 1.5rem;
               }
             }
             p.thanks {
+              font-size: 1rem;
             }
             button.close-dialog {
             }
@@ -286,6 +291,7 @@
             }
           }
           dialog.popup {
+            width: 30vw;
             div.top-section-popup {
               img.success-icon {
               }

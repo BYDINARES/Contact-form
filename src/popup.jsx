@@ -4,15 +4,24 @@ import IconSuccess from "./icons/icon-success-check.svg";
 export default function Popup(props) {
   const dialogRef = useRef();
 
+  //The dialog itself
+  const dialogElement = document.getElementsByClassName("popup");
+
   useEffect(() => {
     if (props.isOpen && dialogRef.current) {
       dialogRef.current.showModal();
     }
   }, [props.isOpen]);
 
+  //================================== THIS NEEDS TO BE FIXED (THE A.add PART)
   const handleClose = () => {
-    if (dialogRef.current) dialogRef.current.close(); // close the dialog
-    if (props.onClose) props.onClose(); // call the function passed from parent
+    dialogElement.classList.add("fade-out");
+
+    setTimeout(() => {
+      if (dialogRef.current) dialogRef.current.close();
+      if (props.onClose) props.onClose();
+      dialogElement.classList.add("popup");
+    }, 1000);
   };
 
   return (
