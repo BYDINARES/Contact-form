@@ -1,0 +1,358 @@
+@media (min-width: 400px) {
+  html {
+    font-size: 20px;
+    /* body {
+      #root {
+        main {
+          dialog.popup {
+            bottom: 67%;
+            div.top-section-popup {
+              img.success-icon {
+              }
+              h1 {
+                font-size: 1rem;
+              }
+            }
+            p.thanks {
+              font-size: 1rem;
+            }
+            button.close-dialog {
+
+            }
+          }
+        }
+      }
+    } */
+  }
+}
+
+@media (min-width: 500px) {
+  html {
+    font-size: 25px;
+    /* body {
+      #root {
+        main {
+          dialog.popup {
+            bottom: 69%;
+            div.top-section-popup {
+              img.success-icon {
+              }
+              h1 {
+                font-size: 1rem;
+              }
+            }
+            p.thanks {
+              font-size: 0.7rem;
+            }
+            button.close-dialog {
+            }
+          }
+        }
+      }
+    } */
+  }
+}
+
+@media (min-width: 576px) {
+  html {
+    font-size: 30px;
+    /* body {
+      #root {
+        main {
+          dialog.popup {
+            div.top-section-popup {
+              img.success-icon {
+              }
+              h1 {
+                font-size: 0.8rem;
+              }
+            }
+            p.thanks {
+              font-size: 0.65rem;
+            }
+            button.close-dialog {
+            }
+          }
+        }
+      }
+    } */
+  }
+}
+
+// Medium devices (tablets, 768px and up) Portrait
+@media (min-width: 768px) {
+  html {
+    font-size: 20px;
+    body {
+      width: 80%;
+      #root {
+        height: 170vw;
+
+        main {
+          dialog.popup {
+            div.top-section-popup {
+              img.success-icon {
+              }
+              h1 {
+                font-size: 1.5rem;
+              }
+            }
+            p.thanks {
+              font-size: 1rem;
+            }
+            button.close-dialog {
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  html {
+    font-size: 16px;
+    body {
+      width: 60%;
+      div#root {
+        height: 65vw;
+        padding-top: 4%;
+        header {
+          height: 10%;
+          margin: 0%;
+          box-sizing: border-box;
+          // h1.title {
+          //   padding-top: 1%;
+          //   padding-bottom: 1%;
+          // }
+        }
+        main {
+          height: 95%;
+          form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 19% 19% 20% 25% 7% 10%;
+
+            //The 3 first inputs
+            label.label-user-infomation /* The class fot the three */ {
+              font-weight: 500;
+
+              > input {
+                margin-bottom: 1%;
+                height: 2rem;
+              }
+            }
+
+            label.name {
+              grid-row: 1/2;
+              grid-column: 1/2;
+              justify-self: left;
+              width: 97%;
+              input.user-information {
+                margin-bottom: 4%;
+              }
+              .error-containers {
+                margin-bottom: 2%;
+                .error {
+                }
+              }
+            }
+            label.last-name {
+              grid-row: 1/2;
+              grid-column: 2;
+              justify-self: right;
+              width: 97%;
+              .error-containers {
+                .error {
+                }
+              }
+            }
+            label.label-user-infomation.email {
+              grid-row: 2/3;
+              grid-column: 1/3;
+              align-self: start;
+              width: 100%;
+              height: 100%;
+
+              > input#email.user-information {
+                width: 100%;
+                height: 20%;
+                padding: 4%;
+                margin-top: 2%;
+                margin-bottom: 2%;
+              }
+              .error-containers {
+                height: 10%;
+                margin-bottom: 0%;
+                .error {
+                }
+              }
+            }
+
+            //======= The 2 radio inputs
+            div.two-radio-options-container {
+              display: grid;
+              height: 100%;
+              width: 100%;
+              grid-row: 3/4;
+              grid-column: 1/3;
+              grid-template-columns: 1fr 1fr;
+              grid-template-rows: 17% 1fr 1fr;
+
+              p.pick-a-query-type {
+                grid-row: 1/2;
+                grid-column: 1/2;
+                margin: 0%;
+                align-self: start;
+              }
+              label.general {
+                grid-row: 2/3;
+                grid-column: 1/2;
+                align-self: center;
+                margin-bottom: 0%;
+                width: 97%;
+                justify-self: left;
+              }
+              label.query-type-option.query-type-option--support.support {
+                grid-row: 2/3;
+                grid-column: 2;
+                align-self: center;
+                margin-bottom: 0%;
+                width: 97%;
+                justify-self: right;
+              }
+              //the clasName for the two of them
+              label.query-type-option {
+                margin-top: 5%;
+                padding: 4%;
+              }
+
+              //The error container
+              .error-containers {
+                grid-row: 3;
+                grid-column: 1/3;
+                align-self: center;
+                .error {
+                }
+              }
+            }
+
+            //TEXTAREA
+            label.label-message {
+              grid-row: 4/5;
+              grid-column: 1/3;
+              box-sizing: border-box;
+              display: flex;
+              flex-direction: column;
+              width: 100%;
+              height: 100%;
+              margin-top: 2%;
+
+              textarea.large-message {
+                height: 8rem;
+                width: 96%;
+                margin-top: 2%;
+              }
+            }
+
+            //The confirmation checkbox
+            label.label-confirmation-button {
+              grid-row: 5/6;
+              grid-column: 1/3;
+              height: 100%;
+              input.confirmation-button {
+                justify-self: center;
+                align-self: center;
+              }
+
+              p.confirmation-text {
+                justify-self: start;
+              }
+
+              .confirmation-button,
+              .div.error-containers {
+                width: fit-content;
+                height: fit-content;
+                margin: 0%;
+              }
+              div.error-containers {
+                width: fit-content;
+                width: 100%;
+                grid-column: 2;
+
+                p.error {
+                  width: fit-content;
+                  font-size: 1rem;
+                }
+              }
+            }
+
+            //The cubmit button
+            #submit-button {
+              grid-row: 6;
+              grid-column: 1/3;
+              height: 60%;
+              display: flex;
+              width: 100%;
+            }
+          }
+          dialog.popup {
+            width: 30vw;
+            div.top-section-popup {
+              img.success-icon {
+              }
+              h1 {
+              }
+            }
+            p.thanks {
+            }
+            button.close-dialog {
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  html {
+    font-size: 20px;
+  }
+  // //The 3 first inputs
+  // .label.label-user-infomation {
+  // }
+  // .input.user-information {
+  // }
+
+  // //The 2 radio inputs
+  // p.pick-a-query-type {
+  // }
+  // label.query-type-option {
+  // }
+
+  // //The text area message area
+  // label.label-message {
+  // }
+  // .textarea.large-message {
+  // }
+
+  // //The confirmation checkbox
+  // .label.label-confirmation-button {
+  // }
+  // .input.confirmation-button {
+  // }
+
+  // //The cubmit button
+  // #submit-button {
+  // }
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+  html {
+    font-size: 22px;
+  }
+}
