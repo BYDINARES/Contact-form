@@ -219,7 +219,9 @@ function App() {
               onBlur={handleBlur}
               required
             />{" "}
-            I consent to being contacted by the team *
+            <p className="confirmation-text">
+              I consent to being contacted by the team *
+            </p>
             <div className="error-containers">
               <p
                 className={errors["users-approval"] ? "active-error" : "error"}

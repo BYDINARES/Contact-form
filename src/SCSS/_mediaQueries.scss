@@ -261,19 +261,26 @@
               grid-row: 5/6;
               grid-column: 1/3;
               height: 100%;
-              display: flex;
-              align-items: center;
+              input.confirmation-button {
+                justify-self: center;
+                align-self: center;
+              }
+
+              p.confirmation-text {
+                justify-self: start;
+              }
+
               .confirmation-button,
               .div.error-containers {
                 width: fit-content;
                 height: fit-content;
-                justify-self: left;
                 margin: 0%;
               }
               div.error-containers {
                 width: fit-content;
-                justify-self: right;
-                margin-left: auto;
+                width: 100%;
+                grid-column: 2;
+
                 p.error {
                   width: fit-content;
                   font-size: 1rem;
